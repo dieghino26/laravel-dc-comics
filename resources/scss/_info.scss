@@ -1,0 +1,34 @@
+#info-nav {
+    background-color: #0282F9;
+    height: 140px;
+
+    .container {
+        padding: 40px;
+
+    }
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style-type: none;
+
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        gap: 10px;
+    }
+
+    span {
+        color: white;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+
+    img {
+        height: 60px;
+    }
+}
