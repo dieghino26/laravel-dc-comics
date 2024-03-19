@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ComicController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,61 +15,49 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts/layout');
-});
+    return view('home');
+})->name('home');
 
-Route::get('/comics', function () {
-    $title = 'comics';
-    return view('comics.comics', compact('title'));
-})->name('comics');
-
-Route::get('/comics/{index}', function ($index) {
-    if (!is_numeric($index) || $index < 0 || $index >= count(config('comics'))) abort(404);
-    $comics = config('comics');
-    return view('comics.comic', ['comic' => $comics[$index]]);
-})->name('comic');
+Route::get('/comics', [ComicController::class, 'index'])->name('comics.index');
+Route::post('/comics', [ComicController::class, 'store'])->name('comics.store');
+Route::get('/comics/create', [ComicController::class, 'create'])->name('comics.create');
+Route::get('/comics/{comic}', [ComicController::class, 'show'])->name('comics.show');
+Route::put('/comics/{comic}', [ComicController::class, 'update'])->name('comics.update');
+Route::delete('/comics/{comic}', [ComicController::class, 'destroy'])->name('comics.destroy');
+Route::get('/comics/{comic}/edit', [ComicController::class, 'edit'])->name('comics.edit');
 
 Route::get('/characters', function () {
-    $title = 'chatacters';
-    return view('characters', compact('title'));
+    return view('characters');
 })->name('characters');
 
 Route::get('/movies', function () {
-    $title = 'movies';
-    return view('movies', compact('title'));
+    return view('movies');
 })->name('movies');
 
 Route::get('/tv', function () {
-    $title = 'tv';
-    return view('tv', compact('title'));
+    return view('tv');
 })->name('tv');
 
 Route::get('/games', function () {
-    $title = 'games';
-    return view('games', compact('title'));
+    return view('games');
 })->name('games');
 
 Route::get('/collectibles', function () {
-    $title = 'collectibles';
-    return view('collectibles', compact('title'));
+    return view('collectibles');
 })->name('collectibles');
 
 Route::get('/videos', function () {
-    $title = 'videos';
-    return view('videos', compact('title'));
+    return view('videos');
 })->name('videos');
 
 Route::get('/fans', function () {
-    $title = 'fans';
-    return view('fans', compact('title'));
+    return view('fans');
 })->name('fans');
 
 Route::get('/news', function () {
-    $title = 'news';
-    return view('news', compact('title'));
+    return view('news');
 })->name('news');
 
 Route::get('/shop', function () {
-    $title = 'shop';
-    return view('shop', compact('title'));
+    return view('shop');
 })->name('shop');
