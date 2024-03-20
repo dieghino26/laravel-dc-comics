@@ -10,14 +10,14 @@ class ComicController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function comics()
+    public function index()
     {
         $comics = Comic::all();
-        return view('comics.comics', compact('comics'));
+        return view('comics.index', compact('comics'));
     }
 
-    public function comic(Comic $comic)
+    public function show(Comic $comic)
     {
-        return view('comics.comic', compact('comic'));
+        return view('comics.show', compact('comic'));
     }
 }

@@ -8,7 +8,7 @@ return [
     ],
     [
         'text' => 'comics',
-        'name' => 'comics.comics',
+        'name' => 'comics.index',
         'url' => '#',
         'current' => true,
     ],

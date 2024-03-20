@@ -18,9 +18,9 @@ Route::get('/', function () {
     return view('layouts/layout');
 });
 
-Route::get('/comics', [ComicController::class, 'comics'])->name('comics.comics');
+Route::get('/comics', [ComicController::class, 'index'])->name('comics.index');
 
-Route::get('/comics/{comic}', [ComicController::class, 'comic'])->name('comic.comic');
+Route::get('/comics/{comic}', [ComicController::class, 'show'])->name('comics.show');
 
 Route::get('/characters', function () {
     return view('characters');
