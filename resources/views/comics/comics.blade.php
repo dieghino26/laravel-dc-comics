@@ -6,13 +6,13 @@
         <div class="comics">
             <h2>Current Series</h2>
             <div class="card-container">
-                @foreach (config('comics') as $comic)
+                @foreach ($comics as $comic)
                     <div class="card">
-                        <a href="{{ route('comic', $loop->index) }}">
+                        <a href="{{ route('comic.comic', $comic) }}">
                             <figure>
-                                <img src="{{ $comic['thumb'] }}" :alt="img comic">
+                                <img src="{{ $comic->thumb }}" :alt="comic cover">
                             </figure>
-                            <span>{{ $comic['series'] }}</span>
+                            <span>{{ $comic->series }}</span>
                         </a>
                     </div>
                 @endforeach
